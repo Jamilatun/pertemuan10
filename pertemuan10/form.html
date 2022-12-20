@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form validation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <form id="form">
+      <div class="social">
+        <div class="title">Selamat Datang di Form Validasi</div>
+        <div class="question">
+          Silahkan isi form di bawah <br />
+        </div>
+      </div>
+  
+      <div>
+        <label for="nama">Nama pelanggan</label>
+        <i class="fas fa-user"></i>
+        <input type="text" name="nama" id="nama" placeholder="masukan nama" required />
+        <i class="fas fa-exclamation-circle failure-icon"></i>
+        <i class="far fa-check-circle success-icon"></i>
+        <div id="errornama"></div>
+      </div>
+  
+      <div>
+        <label for="email">Email</label>
+        <i class="far fa-envelope"></i>
+        <input type="email" name="email" id="email" placeholder="abc@gmail.com" required />
+        <i class="fas fa-exclamation-circle failure-icon"></i>
+        <i class="far fa-check-circle success-icon"></i>
+        <div id="erroremail"></div>
+      </div>
+      <div>
+        <label for="keberangkatan">Jam Keberangkatan</label>
+        <i class="fas fa-lock"></i>
+        <input type="time" name="keberangkatan" id="keberangkatan" placeholder="waktu pemberangkatan" required />
+        <i class="fas fa-exclamation-circle failure-icon"></i>
+        <i class="far fa-check-circle success-icon"></i>
+        <div id="errorkeberangkatan"></div>
+      </div>
+      
+      <div>
+        <label for="tujuan">Tujuan keberangkatan</label>
+        <i class="fas fa-lock"></i>
+        <input type="text" name="tujuan" id="tujuan" placeholder="tujuan" required/>
+        <i class="fas fa-exclamation-circle failure-icon"></i>
+        <i class="far fa-check-circle success-icon"></i>
+        <div id="errortujuan"></div>
+      </div> 
+
+      <div>
+        <label for="tiket">Jumlah tiket</label>
+        <i class="fas fa-lock"></i>
+        <input type="number" name="tiket" id="tiket" placeholder="jumlah tiket" min="1" max="10" required/>
+        <i class="fas fa-exclamation-circle failure-icon"></i>
+        <i class="far fa-check-circle success-icon"></i>
+        <div id="errortiket"></div>
+      </div>
+      <input type="button" value="Submit" id="submit" onclick="hasil()"> 
+    </form>
+
+    <div style="margin:50px 40px;">
+      <h1 id="inputhasil"></h1>
+      <p id="inputnama"></p>
+      <p id="inputemail"></p>
+      <p id="inputkeberangkatan"></p>
+      <p id="inputtujuan"></p>
+      <p id="inputtiket"></p>
+    </div>
+  </div>
+  
+    <script>
+      function hasil(){
+            let nama = document.getElementById('nama').value;
+            let email = document.getElementById('email').value;
+            let jam = document.getElementById('keberangkatan').value;
+            let tujuan = document.getElementById('tujuan').value;
+            let tiket = document.getElementById('tiket').value;
+
+            if (nama == ''){
+                document.getElementById('errornama').innerHTML = 'Masukkan Nama';
+                document.getElementById('errornama').style ='color : red';
+            }
+            
+            if (email == ''){
+                document.getElementById('erroremail').innerHTML = 'Masukkan Email';
+                document.getElementById('erroremail').style ='color : red';
+
+            }
+
+            if (jam == ''){
+                document.getElementById('errorkeberangkatan').innerHTML = 'Masukkan Jam';
+                document.getElementById('errorkeberangkatan').style ='color : red';
+
+            }
+
+            if (tujuan == ''){
+                document.getElementById('errortujuan').innerHTML = 'Masukkan Tujuan';
+                document.getElementById('errortujuan').style ='color : red';
+
+            }
+
+            if (tiket == ''){
+                document.getElementById('errortiket').innerHTML = 'Masukkan Tiket';
+                document.getElementById('errortiket').style ='color : red';
+
+            }
+
+            else{
+                document.getElementById('inputhasil').innerHTML = "Hasil Validasi";
+                document.getElementById('inputnama').innerHTML = "Nama Anda :"+nama;
+                document.getElementById('inputemail').innerHTML = "Email Anda :"+email;
+                document.getElementById('inputkeberangkatan').innerHTML = "Jam Keberangkatan Anda :"+jam;
+                document.getElementById('inputtujuan').innerHTML = "Tujuan Anda :"+tujuan;
+                document.getElementById('inputtiket').innerHTML = "Jumlah Tiket Anda :"+tiket;
+            }
+        }
+  </script>
+</body>
+</html>
+
+
